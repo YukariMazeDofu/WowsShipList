@@ -1,8 +1,10 @@
 {
 	"name": "Existing Docker Compose (Extend)",
-	"dockerComposeFile": ["../compose.yml", "compose.yml"],
+	"dockerComposeFile": ["../compose.yml"],
 	"service": "deno",
 	"workspaceFolder": "/workspace",
+	"remoteUser": "user",
+	"updateRemoteUserUID": true,
 	"customizations": {
     "vscode": {
       "extensions": ["denoland.vscode-deno", "esbenp.prettier-vscode"]

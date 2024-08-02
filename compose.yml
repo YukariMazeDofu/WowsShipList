@@ -5,4 +5,12 @@ services:
       dockerfile: Dockerfile
     volumes:
       - ./workspace:/workspace
+      - ./.devcontainer/entrypoint.sh:/entrypoint.sh
+    environment:
+      - UID=1000
+      - UNAME=user
+      - GID=1000
+      - GNAME=user
     working_dir: /workspace
+    entrypoint: /entrypoint.sh
+    tty: true
