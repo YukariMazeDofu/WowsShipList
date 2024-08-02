@@ -1,0 +1,11 @@
+{
+	"name": "Existing Docker Compose (Extend)",
+	"dockerComposeFile": ["../compose.yml", "compose.yml"],
+	"service": "deno",
+	"workspaceFolder": "/workspace",
+	"customizations": {
+    "vscode": {
+      "extensions": ["denoland.vscode-deno", "esbenp.prettier-vscode"]
+    }
+	}
+}

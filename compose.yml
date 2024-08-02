@@ -1,0 +1,8 @@
+services:
+  deno:
+    build:
+      context: .devcontainer
+      dockerfile: Dockerfile
+    volumes:
+      - ./workspace:/workspace
+    working_dir: /workspace
