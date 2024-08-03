@@ -10,11 +10,15 @@ interface appSettings {
   general: {
     useCache: boolean;
     targetClanTag: string;
+    ownedSign: string;
+    notOwnedSign: string;
   };
-  filePath: {
-    shipList: string;
-    clanList: string;
-    clanDetail: string;
+  path: {
+    shipListFile: string;
+    clanListFile: string;
+    clanDetailFile: string;
+    statsDir: string;
+    outputCsvFile: string;
   };
 }
 

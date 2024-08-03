@@ -2,4 +2,6 @@
 settings.toml
 
 # Exported data.
-workspace/data/*
+workspace/data/**/*.jsonc
+workspace/data/**/*.csv
+

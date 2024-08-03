@@ -19,7 +19,7 @@ export const searchClansByTag = async (tag: string): Promise<ClanList> => {
   const list = await requestList<ClanList>(
     "/wows/clans/list/",
     { search: tag },
-    settings.filePath.clanList
+    settings.path.clanListFile
   );
   return list;
 };
