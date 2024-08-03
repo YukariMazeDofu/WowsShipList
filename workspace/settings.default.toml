@@ -1,0 +1,4 @@
+[WgApi]
+url = "https://api.worldofwarships.asia"
+language = "ja"
+appKey = "INPUT YOUR APPLICATION KEY"

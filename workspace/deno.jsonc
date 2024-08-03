@@ -1,5 +1,6 @@
 {
   "imports": {
-    "axios": "npm:axios@^1.7"
+    "axios": "npm:axios@^1.7",
+    "toml": "jsr:@std/toml"
   }
 }
