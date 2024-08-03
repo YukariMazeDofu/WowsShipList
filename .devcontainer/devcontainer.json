@@ -1,6 +1,6 @@
 {
 	"name": "Existing Docker Compose (Extend)",
-	"dockerComposeFile": ["../compose.yml"],
+	"dockerComposeFile": ["../compose.yml", "compose.yml"],
 	"service": "deno",
 	"workspaceFolder": "/workspace",
 	"remoteUser": "user",

@@ -1,0 +1,10 @@
+services:
+  deno:
+    volumes:
+      - ./.devcontainer/entrypoint.sh:/entrypoint.sh
+    environment:
+      - UID=1000
+      - UNAME=user
+      - GID=1000
+      - GNAME=user
+    entrypoint: /entrypoint.sh

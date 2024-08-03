@@ -5,12 +5,9 @@ services:
       dockerfile: Dockerfile
     volumes:
       - ./workspace:/workspace
-      - ./.devcontainer/entrypoint.sh:/entrypoint.sh
-    environment:
-      - UID=1000
-      - UNAME=user
-      - GID=1000
-      - GNAME=user
+      - deno_cache:/deno-dir
     working_dir: /workspace
-    entrypoint: /entrypoint.sh
-    tty: true
+    command:  "deno run -A ./src/main.ts"
+    
+volumes:
+  deno_cache:
