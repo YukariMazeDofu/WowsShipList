@@ -5,9 +5,5 @@ services:
       dockerfile: Dockerfile
     volumes:
       - ./workspace:/workspace
-      - deno_cache:/deno-dir
     working_dir: /workspace
     command:  "deno run -A ./src/main.ts"
-    
-volumes:
-  deno_cache:

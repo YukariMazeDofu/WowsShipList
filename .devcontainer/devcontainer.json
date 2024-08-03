@@ -7,7 +7,12 @@
 	"updateRemoteUserUID": true,
 	"customizations": {
     "vscode": {
-      "extensions": ["denoland.vscode-deno", "esbenp.prettier-vscode"]
+      "extensions": [
+				"denoland.vscode-deno",
+				"esbenp.prettier-vscode",
+				"tamasfe.even-better-toml",
+				"oderwat.indent-rainbow"
+			]
     }
 	}
 }
