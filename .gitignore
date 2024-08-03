@@ -1,1 +1,5 @@
+# Settings including private key.
 settings.toml
+
+# Exported data.
+workspace/data/*

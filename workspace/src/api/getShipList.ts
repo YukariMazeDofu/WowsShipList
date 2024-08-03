@@ -1,4 +1,5 @@
-import { requestWgApi, WgResponse } from "./requestWgApi.ts";
+import { requestList } from "./requestWgApi.ts";
+import { settings } from "../lib/settings.ts";
 
 const shipDataKeys = ["tier", "type", "name"] as const;
 type ShipDataKeys = (typeof shipDataKeys)[number];
@@ -10,20 +11,11 @@ interface ShipList {
   [shipId: number]: ShipData;
 }
 
-interface ShipListResponse extends WgResponse {
-  data: ShipList;
-}
-
-export const getShipList = async () => {
-  const responses = await requestWgApi<ShipListResponse>(
+export const getShipList = async (): Promise<ShipList> => {
+  const list = await requestList<ShipList>(
     "/wows/encyclopedia/ships/",
-    { fields: shipDataKeys.join(",") }
+    { fields: shipDataKeys.join(",") },
+    settings.filePath.shipList
   );
-
-  const list = responses
-    .map((i) => i.data)
-    .reduce((acc, obj) => {
-      return { ...acc, ...obj };
-    });
   return list;
 };

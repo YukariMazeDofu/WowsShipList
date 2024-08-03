@@ -2,3 +2,6 @@
 url = "https://api.worldofwarships.asia"
 language = "ja"
 appKey = "INPUT YOUR APPLICATION KEY"
+
+[Files]
+shipList = "data/shipList.jsonc"
