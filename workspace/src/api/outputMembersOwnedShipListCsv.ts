@@ -16,7 +16,7 @@ export const outputMemberOwnedShipListCsv = async (
   const encoder = new TextEncoder();
   const writer = file.writable.getWriter();
 
-  const memberNames = Object.keys(membersOwnedShips);
+  const memberNames = Object.keys(membersOwnedShips).sort();
   const mercenaryNames = memberNames.filter((v) =>
     v.startsWith(settings.mercenary.namePrefix)
   );
