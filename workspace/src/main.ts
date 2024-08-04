@@ -3,6 +3,7 @@ import { getShipList } from "./api/getShipList.ts";
 import { searchClanByTag } from "./api/searchClansByTag.ts";
 import { getClanDetail } from "./api/getClanDetail.ts";
 import { getMembersOwnedShipList } from "./api/getMembersOwnedShipList.ts";
+import { getMembersByIgn } from "./api/getMembersByIgn.ts";
 import { outputMemberOwnedShipListCsv } from "./api/outputMembersOwnedShipListCsv.ts";
 
 const main = async () => {
@@ -21,7 +22,7 @@ const main = async () => {
   }
   const targetClanId = targetClan.clan_id;
 
-  console.log(`クランID:${targetClanId} のクラン詳細の取得`);
+  console.log(`クランID:${targetClanId} のクランメンバの取得`);
   const targetClanDetail = await getClanDetail(targetClanId);
   if (targetClanDetail === false) {
     console.error(
@@ -29,10 +30,19 @@ const main = async () => {
     );
     return;
   }
-  const members = targetClanDetail.members;
+  const clanMembers = targetClanDetail.members;
+
+  console.log("傭兵メンバ情報の取得");
+  const mercenaries = await getMembersByIgn(settings.mercenary.ignList);
+  const members = { ...clanMembers, ...mercenaries };
+
+  console.log("Statsの取得");
   const membersOwnedShips = await getMembersOwnedShipList(members, shipList);
 
+  console.log("CSV形式での出力");
   await outputMemberOwnedShipListCsv(membersOwnedShips, shipList);
+  
+  console.log("出力しました");
 };
 
 main();

@@ -1,7 +1,23 @@
-[WgApi]
+[wgApi]
+appKey = "INPUT_YOUR_APPLICATION_KEY_HERE"
 url = "https://api.worldofwarships.asia"
 language = "ja"
-appKey = "INPUT YOUR APPLICATION KEY"
+limit = 100
 
-[Files]
-shipList = "data/shipList.jsonc"
+[general]
+useCache = true
+targetClanTag = "INPUT_YOUR_CLAN_TAG"
+ownedSign = "〇"
+notOwnedSign = "×"
+
+[mercenary]
+namePrefix = "<M>"
+ignList = ["INPUT_MERCENARY_IGNs"]
+
+[path]
+shipListFile = "data/cache/shipList.jsonc"
+clanListFile = "data/cache/clanList.jsonc"
+clanDetailFile = "data/cache/clanDetail.jsonc"
+accountIdDir = "data/cache/accountId"
+statsDir = "data/cache/stats"
+outputCsvFile = "data/output.csv"

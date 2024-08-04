@@ -1,18 +1,18 @@
 {
-	"name": "Existing Docker Compose (Extend)",
-	"dockerComposeFile": ["../compose.yml", "compose.yml"],
-	"service": "deno",
-	"workspaceFolder": "/workspace",
-	"remoteUser": "user",
-	"updateRemoteUserUID": true,
-	"customizations": {
+  "name": "Existing Docker Compose (Extend)",
+  "dockerComposeFile": ["../compose.yml", "compose.yml"],
+  "service": "deno",
+  "workspaceFolder": "/workspace",
+  "remoteUser": "user",
+  "updateRemoteUserUID": true,
+  "customizations": {
     "vscode": {
       "extensions": [
-				"denoland.vscode-deno",
-				"esbenp.prettier-vscode",
-				"tamasfe.even-better-toml",
-				"oderwat.indent-rainbow"
-			]
+        "denoland.vscode-deno",
+        "esbenp.prettier-vscode",
+        "tamasfe.even-better-toml",
+        "oderwat.indent-rainbow"
+      ]
     }
-	}
+  }
 }

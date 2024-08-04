@@ -3,8 +3,8 @@ import { settings } from "../lib/settings.ts";
 
 interface Member {
   role: string;
-  joined_at: number;
-  account_id: number;
+  joined_at?: number;
+  account_id: string;
   account_name: string;
 }
 

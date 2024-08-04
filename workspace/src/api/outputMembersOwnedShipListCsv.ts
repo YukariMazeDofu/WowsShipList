@@ -1,6 +1,7 @@
 import { settings } from "../lib/settings.ts";
 import { MembersOwnedShips } from "./getMembersOwnedShipList.ts";
 import { ShipList, shipDataKeys } from "./getShipList.ts";
+import { format } from "datetime";
 
 export const outputMemberOwnedShipListCsv = async (
   membersOwnedShips: MembersOwnedShips,
@@ -16,13 +17,30 @@ export const outputMemberOwnedShipListCsv = async (
   const writer = file.writable.getWriter();
 
   const memberNames = Object.keys(membersOwnedShips);
+  const mercenaryNames = memberNames.filter((v) =>
+    v.startsWith(settings.mercenary.namePrefix)
+  );
+
+  const metaData: string[][] = [];
+  metaData.push([
+    `"exportDate"`,
+    `"${format(new Date(), "yyyy/mm/dd hh:mm:ss")} UTC"`,
+  ]);
+  metaData.push([
+    `"mercenaries"`,
+    mercenaryNames.map((name) => `"${name}"`).join(","),
+  ]);
+  metaData.forEach(
+    async (line) => await writer.write(encoder.encode(line.join(",") + "\n"))
+  );
+
+  await writer.write(encoder.encode("\n"));
 
   const header = [
     ...shipDataKeys.map((fieldName) => `"${fieldName}"`),
     ...memberNames.map((userName) => `"${userName}"`),
-    "\n",
   ];
-  await writer.write(encoder.encode(header.join(",")));
+  await writer.write(encoder.encode(header.join(",") + "\n"));
 
   for (const shipId of Object.keys(shipList)) {
     const line = [
@@ -30,8 +48,7 @@ export const outputMemberOwnedShipListCsv = async (
       ...memberNames.map(
         (memberName) => `"${membersOwnedShips[memberName][shipId]}"`
       ),
-      "\n",
     ];
-    await writer.write(encoder.encode(line.join(",")));
+    await writer.write(encoder.encode(line.join(",") + "\n"));
   }
 };

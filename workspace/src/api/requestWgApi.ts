@@ -52,7 +52,7 @@ export const requestList = async <TList>(
   url: string,
   params: { [key: string]: string },
   cachePath: string
-) => {
+): Promise<TList> => {
   if (settings.general.useCache) {
     const cacheObj = await parseJsonFromFile<TList>(cachePath);
     if (cacheObj !== false) {

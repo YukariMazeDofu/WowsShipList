@@ -13,10 +13,15 @@ interface appSettings {
     ownedSign: string;
     notOwnedSign: string;
   };
+  mercenary: {
+    namePrefix: string;
+    ignList: string[];
+  };
   path: {
     shipListFile: string;
     clanListFile: string;
     clanDetailFile: string;
+    accountIdDir: string;
     statsDir: string;
     outputCsvFile: string;
   };

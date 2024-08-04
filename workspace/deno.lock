@@ -3,12 +3,16 @@
   "packages": {
     "specifiers": {
       "jsr:@std/collections@^1.0.4": "jsr:@std/collections@1.0.5",
+      "jsr:@std/datetime": "jsr:@std/datetime@0.224.4",
       "jsr:@std/toml": "jsr:@std/toml@1.0.0",
       "npm:axios@^1.7": "npm:axios@1.7.3"
     },
     "jsr": {
       "@std/collections@1.0.5": {
         "integrity": "ab9eac23b57a0c0b89ba45134e61561f69f3d001f37235a248ed40be260c0c10"
+      },
+      "@std/datetime@0.224.4": {
+        "integrity": "d8f4d9efbb38dd9f8d515e4eed36737ec097311aaf6c1b4163d7a734095542dc"
       },
       "@std/toml@1.0.0": {
         "integrity": "c9e37564eedd84084871c66238e00196ec67aa958e09a7f761b3f36273a7a8a5",
@@ -71,6 +75,7 @@
   "remote": {},
   "workspace": {
     "dependencies": [
+      "jsr:@std/datetime",
       "jsr:@std/toml",
       "npm:axios@^1.7"
     ]
