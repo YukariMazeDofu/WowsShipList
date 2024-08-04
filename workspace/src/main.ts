@@ -3,7 +3,7 @@ import { getShipList } from "./api/getShipList.ts";
 import { searchClanByTag } from "./api/searchClansByTag.ts";
 import { getClanDetail } from "./api/getClanDetail.ts";
 import { getMembersOwnedShipList } from "./api/getMembersOwnedShipList.ts";
-import { getMembersByIgns } from "./api/getMembersByIgn.ts";
+import { getMembersByIgnList } from "./api/getMembersByIgnList.ts";
 import { outputMemberOwnedShipListCsv } from "./lib/outputMembersOwnedShipListCsv.ts";
 
 const main = async () => {
@@ -33,7 +33,7 @@ const main = async () => {
   const clanMembers = targetClanDetail.members;
 
   console.log("傭兵メンバ情報の取得");
-  const mercenaries = await getMembersByIgns(settings.mercenary.ignList);
+  const mercenaries = await getMembersByIgnList(settings.mercenary.ignList);
   const members = { ...clanMembers, ...mercenaries };
 
   console.log("Statsの取得");
