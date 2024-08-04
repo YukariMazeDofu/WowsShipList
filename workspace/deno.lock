@@ -3,8 +3,8 @@
   "packages": {
     "specifiers": {
       "jsr:@std/collections@^1.0.4": "jsr:@std/collections@1.0.5",
-      "jsr:@std/datetime": "jsr:@std/datetime@0.224.4",
-      "jsr:@std/toml": "jsr:@std/toml@1.0.0",
+      "jsr:@std/datetime@^0.224": "jsr:@std/datetime@0.224.4",
+      "jsr:@std/toml@^1.0": "jsr:@std/toml@1.0.0",
       "npm:axios@^1.7": "npm:axios@1.7.3"
     },
     "jsr": {
@@ -75,8 +75,8 @@
   "remote": {},
   "workspace": {
     "dependencies": [
-      "jsr:@std/datetime",
-      "jsr:@std/toml",
+      "jsr:@std/datetime@^0.224",
+      "jsr:@std/toml@^1.0",
       "npm:axios@^1.7"
     ]
   }

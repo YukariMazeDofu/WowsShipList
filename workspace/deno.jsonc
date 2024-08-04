@@ -1,7 +1,7 @@
 {
   "imports": {
     "axios": "npm:axios@^1.7",
-    "toml": "jsr:@std/toml",
-    "datetime": "jsr:@std/datetime"
+    "toml": "jsr:@std/toml@^1.0",
+    "datetime": "jsr:@std/datetime@^0.224"
   }
 }
