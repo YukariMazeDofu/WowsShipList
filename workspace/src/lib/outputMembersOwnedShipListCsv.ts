@@ -46,7 +46,12 @@ export const outputMemberOwnedShipListCsv = async (
     const line = [
       ...shipDataKeys.map((field) => `"${shipList[shipId][field]}"`),
       ...memberNames.map(
-        (memberName) => `"${membersOwnedShips[memberName][shipId]}"`
+        (memberName) =>
+          `"${
+            membersOwnedShips[memberName][shipId]
+              ? settings.general.ownedSign
+              : settings.general.notOwnedSign
+          }"`
       ),
     ];
     await writer.write(encoder.encode(line.join(",") + "\n"));

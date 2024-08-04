@@ -14,7 +14,7 @@ type MemberStats = {
 };
 
 type OwnedShips = {
-  [shipId: string]: string;
+  [shipId: string]: boolean;
 };
 
 export type MembersOwnedShips = {
@@ -52,9 +52,7 @@ const getMemberOwnedShipList = async (
   );
   const ownedShips: OwnedShips = {};
   for (const key of Object.keys(shipList)) {
-    ownedShips[key] = Object.prototype.hasOwnProperty.call(hasedList, key)
-      ? settings.general.ownedSign
-      : settings.general.notOwnedSign;
+    ownedShips[key] = Object.prototype.hasOwnProperty.call(hasedList, key);
   }
   return ownedShips;
 };
