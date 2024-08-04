@@ -15,13 +15,12 @@ type ClanData = {
 
 type ClanList = ClanData[];
 
-export const searchClansByTag = async (tag: string): Promise<ClanList> => {
-  const list = await requestList<ClanList>(
+const searchClansByTag = async (tag: string): Promise<ClanList> => {
+  return await requestList<ClanList>(
     "/wows/clans/list/",
     { search: tag },
     settings.path.clanListFile
   );
-  return list;
 };
 
 export const searchClanByTag = async (

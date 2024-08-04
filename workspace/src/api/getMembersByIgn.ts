@@ -20,7 +20,7 @@ const searchUserByIgn = async (ign: string): Promise<UserData | false> => {
   return list.length ? list[0] : false;
 };
 
-export const getMembersByIgn = async (ignList: string[]): Promise<Members> => {
+export const getMembersByIgns = async (ignList: string[]): Promise<Members> => {
   const members: Members = {};
   for (const ign of ignList) {
     const userData = await searchUserByIgn(ign);

@@ -9,17 +9,17 @@ type Stats = {
   [key in StatsKeys]: string;
 };
 
-interface MemberStats {
+type MemberStats = {
   [memberId: string]: Stats[];
-}
+};
 
-interface OwnedShips {
+type OwnedShips = {
   [shipId: string]: string;
-}
+};
 
-export interface MembersOwnedShips {
+export type MembersOwnedShips = {
   [memberName: string]: OwnedShips;
-}
+};
 
 const getStats = async (memberId: string): Promise<Stats[] | false> => {
   const list = await requestList<MemberStats>(
@@ -62,15 +62,15 @@ const getMemberOwnedShipList = async (
 export const getMembersOwnedShipList = async (
   members: Members,
   shipList: ShipList
-) => {
+): Promise<MembersOwnedShips> => {
   const membersOwnedShips: MembersOwnedShips = {};
 
   for (const memberId of Object.keys(members)) {
     const memberName = members[memberId].account_name;
     const ownedShips = await getMemberOwnedShipList(memberId, shipList);
-    if (ownedShips !== false) {
-      membersOwnedShips[memberName] = ownedShips;
-    }
+    if (ownedShips === false) continue;
+    membersOwnedShips[memberName] = ownedShips;
   }
+
   return membersOwnedShips;
 };

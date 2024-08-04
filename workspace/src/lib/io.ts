@@ -9,7 +9,10 @@ export const parseJsonFromFile = async <TRead>(
   }
 };
 
-export const writeJsonToFile = async <TWrite>(path: string, obj: TWrite) => {
+export const writeJsonToFile = async <TWrite>(
+  path: string,
+  obj: TWrite
+): Promise<void> => {
   const jsonText = JSON.stringify(obj, null, 2);
   await Deno.writeTextFile(path, jsonText);
 };

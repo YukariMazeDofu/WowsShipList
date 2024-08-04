@@ -2,21 +2,23 @@ import axios, { AxiosResponse } from "axios";
 import { settings } from "../lib/settings.ts";
 import { parseJsonFromFile, writeJsonToFile } from "../lib/io.ts";
 
-interface Meta {
+type Meta = {
   count: number;
   total?: number;
   page?: number;
-}
+};
 
-export interface WgResponse<TData> {
+type WgResponse<TData> = {
   status: string;
   meta: Meta;
   data: TData;
-}
+};
+
+type Params = { [key: string]: string };
 
 export const requestWgApi = async <TData>(
   apiUrl: string,
-  params: { [key: string]: string }
+  params: Params
 ): Promise<WgResponse<TData>[]> => {
   const responses: WgResponse<TData>[] = [];
   let response: AxiosResponse<WgResponse<TData>>;
@@ -50,7 +52,7 @@ export const requestWgApi = async <TData>(
 
 export const requestList = async <TList>(
   url: string,
-  params: { [key: string]: string },
+  params: Params,
   cachePath: string
 ): Promise<TList> => {
   if (settings.general.useCache) {

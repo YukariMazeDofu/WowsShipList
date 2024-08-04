@@ -3,8 +3,8 @@ import { getShipList } from "./api/getShipList.ts";
 import { searchClanByTag } from "./api/searchClansByTag.ts";
 import { getClanDetail } from "./api/getClanDetail.ts";
 import { getMembersOwnedShipList } from "./api/getMembersOwnedShipList.ts";
-import { getMembersByIgn } from "./api/getMembersByIgn.ts";
-import { outputMemberOwnedShipListCsv } from "./api/outputMembersOwnedShipListCsv.ts";
+import { getMembersByIgns } from "./api/getMembersByIgn.ts";
+import { outputMemberOwnedShipListCsv } from "./lib/outputMembersOwnedShipListCsv.ts";
 
 const main = async () => {
   console.log("全艦艇情報の取得");
@@ -33,7 +33,7 @@ const main = async () => {
   const clanMembers = targetClanDetail.members;
 
   console.log("傭兵メンバ情報の取得");
-  const mercenaries = await getMembersByIgn(settings.mercenary.ignList);
+  const mercenaries = await getMembersByIgns(settings.mercenary.ignList);
   const members = { ...clanMembers, ...mercenaries };
 
   console.log("Statsの取得");
@@ -41,7 +41,7 @@ const main = async () => {
 
   console.log("CSV形式での出力");
   await outputMemberOwnedShipListCsv(membersOwnedShips, shipList);
-  
+
   console.log("出力しました");
 };
 

@@ -1,18 +1,18 @@
 import { requestList } from "./requestWgApi.ts";
 import { settings } from "../lib/settings.ts";
 
-interface Member {
+type Member = {
   role: string;
   joined_at?: number;
   account_id: string;
   account_name: string;
-}
+};
 
-export interface Members {
+export type Members = {
   [memberId: string]: Member;
-}
+};
 
-interface ClanDetail {
+type ClanDetail = {
   members_count: number;
   name: string;
   creator_name: string;
@@ -24,10 +24,11 @@ interface ClanDetail {
   creator_id: number;
   clan_id: number;
   members: Members;
-}
-interface ClanDetails {
+};
+
+type ClanDetails = {
   [clanId: string]: ClanDetail;
-}
+};
 
 export const getClanDetail = async (
   clanId: string

@@ -1,12 +1,12 @@
-import { settings } from "../lib/settings.ts";
-import { MembersOwnedShips } from "./getMembersOwnedShipList.ts";
-import { ShipList, shipDataKeys } from "./getShipList.ts";
+import { settings } from "./settings.ts";
+import { MembersOwnedShips } from "../api/getMembersOwnedShipList.ts";
+import { ShipList, shipDataKeys } from "../api/getShipList.ts";
 import { format } from "datetime";
 
 export const outputMemberOwnedShipListCsv = async (
   membersOwnedShips: MembersOwnedShips,
   shipList: ShipList
-) => {
+): Promise<void> => {
   const path = settings.path.outputCsvFile;
   const file = await Deno.open(path, {
     write: true,

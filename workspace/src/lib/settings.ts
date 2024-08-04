@@ -1,6 +1,6 @@
 import { parse } from "toml";
 
-interface appSettings {
+type appSettings = {
   wgApi: {
     appKey: string;
     url: string;
@@ -25,7 +25,7 @@ interface appSettings {
     statsDir: string;
     outputCsvFile: string;
   };
-}
+};
 
 const settingsToml = await Deno.readTextFile("settings.toml");
 const settingsObj = parse(settingsToml);
