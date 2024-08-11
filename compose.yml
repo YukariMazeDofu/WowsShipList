@@ -3,7 +3,13 @@ services:
     build:
       context: .devcontainer
       dockerfile: Dockerfile
+    environment:
+      - DENO_DIR=/deno-dir
     volumes:
       - ./workspace:/workspace
+      - deno-dir:/deno-dir
     working_dir: /workspace
     command:  "deno run -A ./src/main.ts"
+
+volumes:
+  deno-dir: 
